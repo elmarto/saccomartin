@@ -9,41 +9,102 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
   <style>
-  body {
-    background: #252627;
-  }
-  
   .main {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    position: absolute;
   }
 
-  .title {
-    width: auto;
-    color: white;
+  .main #main-bg {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .main .title {
+    z-index: 2;
+    color: #08fdd8;
     font-size: 50px;
+    width: auto;
+  }
+
+  .main .title:before, 
+  .main .title:after {
+    content: '<title>';
+    position: absolute;
+    color: gray;
+    font-size: 0.4em;
+    margin-top: -1em;
+    margin-left: -1em;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .main .title:after {
+    content: '</title>';
+    margin-top: 0;
+  }
+
+  section {
+    padding: 2em;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  section .title {
+    color: #05a38c;
+  }
+  section:nth-child(odd) {
+    background: #252627;
+    color: #ccc;
+  }
+
+  section:nth-child(odd) .title {
+    color: #08fdd8;
   }
   </style>
 </head>
 <body>
   <section class="main">
+    <div id="main-bg"></div>
     <h1 class="title">
       Hi,<br>
-      I'm Martin.<br>
-      I'm a Software Engineer.
+      I'm Martin,<br>
+      software engineer.
     </h1>
+  </section>
+  <section>
+    <h2 class="title">About me</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis alias asperiores eius doloremque, expedita maxime ullam quidem optio molestiae nostrum maiores minima, beatae numquam magnam quis porro eos accusamus ea.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis alias asperiores eius doloremque, expedita maxime ullam quidem optio molestiae nostrum maiores minima, beatae numquam magnam quis porro eos accusamus ea.</p>
+  </section>
+  <section>
+    <h2 class="title">Skills & experience</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis alias asperiores eius doloremque, expedita maxime ullam quidem optio molestiae nostrum maiores minima, beatae numquam magnam quis porro eos accusamus ea.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis alias asperiores eius doloremque, expedita maxime ullam quidem optio molestiae nostrum maiores minima, beatae numquam magnam quis porro eos accusamus ea.</p>
+  </section>
+  <section>
+    <h2 class="title">Portfolio</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis alias asperiores eius doloremque, expedita maxime ullam quidem optio molestiae nostrum maiores minima, beatae numquam magnam quis porro eos accusamus ea.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis alias asperiores eius doloremque, expedita maxime ullam quidem optio molestiae nostrum maiores minima, beatae numquam magnam quis porro eos accusamus ea.</p>
+  </section>
+  <section>
+    <h2 class="title">Contact me</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis alias asperiores eius doloremque, expedita maxime ullam quidem optio molestiae nostrum maiores minima, beatae numquam magnam quis porro eos accusamus ea.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis alias asperiores eius doloremque, expedita maxime ullam quidem optio molestiae nostrum maiores minima, beatae numquam magnam quis porro eos accusamus ea.</p>
   </section>
 </body>
 <script>
 const app = new PIXI.Application({
-  resizeTo: window
+  resizeTo: window,
+  backgroundColor: 0x252627
 });
 console.log(app)
-document.body.appendChild(app.view);
+document.getElementById('main-bg').appendChild(app.view);
 
 // Get the texture for rope.
 const starTexture = PIXI.Texture.from('assets/star.png');
@@ -84,11 +145,6 @@ function randomizeStar(star, initial) {
     star.y = Math.sin(deg) * distance;
 }
 
-// Change flight speed every 5 seconds
-// setInterval(() => {
-//     warpSpeed = warpSpeed > 0 ? 0 : 1;
-// }, 5000);
-
 // Listen for animate update
 app.ticker.add((delta) => {
     // Simple easing. This should be changed to proper easing function when used for real.
@@ -101,7 +157,7 @@ app.ticker.add((delta) => {
         // Map star 3d position to 2d with really simple projection
         const z = star.z - cameraZ;
         star.sprite.x = star.x * (fov / z) * app.renderer.screen.width + app.renderer.screen.width / 2;
-        star.sprite.y = star.y * (fov / z) * app.renderer.screen.width + app.renderer.screen.height / 2;
+        star.sprite.y = star.y * (fov / z) * app.renderer.screen.width + app.renderer.screen.height;
 
         // Calculate star scale & rotation.
         const dxCenter = star.sprite.x - app.renderer.screen.width / 2;
