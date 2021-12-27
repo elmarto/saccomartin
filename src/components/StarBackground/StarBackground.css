@@ -1,0 +1,7 @@
+.main-bg {
+  position: absolute;
+  height: 100vh;
+  width: calc(100vw - 4rem);
+  top: 0;
+  left: 0;
+}
