@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../../../styles/styles.css";
-import { StarBackground } from "../../../../components/StarBackground/StarBackground";
+import { StarBackground } from "components/StarBackground/StarBackground";
 
 export const Hello = () => {
   const [display, setDisplay] = useState(0);
