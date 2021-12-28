@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../../styles/styles.css";
-import { StarBackground } from "../StarBackground/StarBackground";
+import "../../../../styles/styles.css";
+import { StarBackground } from "../../../../components/StarBackground/StarBackground";
 
 export const Hello = () => {
   const [display, setDisplay] = useState(0);
@@ -19,7 +19,7 @@ export const Hello = () => {
     <>
       <StarBackground />
       <div className="title-wrapper">
-        <h1 className="title" style={{ height: `${display * 1.175}em` }}>
+        <h1 className="title" style={{ height: `${display * 1.5}em` }}>
           <span>Hi,</span>
 
           <span>

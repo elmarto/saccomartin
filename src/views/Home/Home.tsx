@@ -1,5 +1,6 @@
 import React from "react";
-import { Hello } from "../../components/hello/Hello";
+import { Hello } from "./components/Hello/Hello";
+import { Portfolio } from "./components/Portfolio/Portfolio";
 import "../../styles/styles.css";
 
 export const Home = () => {
@@ -45,46 +46,7 @@ export const Home = () => {
       </section>
       <section>
         <h2 className="title">Portfolio</h2>
-        <p>
-          Front End Developer Google | Project ARA Marketplace Google’s modular phone marketplace, where the phones and
-          its modules can be acquired. AngularJS, Stylus, Angular Material, Grunt, Bower, Java, Spring
-        </p>
-        <p>
-          Front End Team Lead Avantage | Playbook Let players bet on NFL plays in real time. Angular 6, Material, Flex
-          Layout, Sass, Java, SmartFox Socket Server
-        </p>
-        <p>
-          Front End Developer EAB | Student Platform Web campus platform for universities that allows students to manage
-          their career plan making high focus in accessibility features. AngularJS, Sass, Bootstrap, Gulp, Python
-        </p>
-        <p>
-          Front End Developer Halloween Masks | McDonald’s This web app allows users to use its front cameras to insert
-          an overlay mask in front of its face and analyze its sentiments with an external IA provider. ReactJS 16+,
-          Sass
-        </p>
-        <p>
-          Front End Developer Denim Social Platform Gremlin Social is a company focused on its Social Network Management
-          Platform, which allows users to keep track of its networks posts and metrics. VueJS, Quasar, Stylus, Python,
-          Django
-        </p>
-        <p>
-          Full Stack Developer Google | Hangouts for Salesforce plugin Google’s video chat app Hangouts integration into
-          Salesforce multifunctional platform by making use of both API. Vanilla Javascript, Java.
-        </p>
-        <p>
-          Full Stack Tech Lead Disney | Disney Radio Highly customizable website with an extensive amount of interactive
-          modules focused on responsiveness while users can listen to Disney Radio shows. Javascript, jQuery, PHP,
-          Drupal, MySQL.
-        </p>
-        <p>
-          Fullstack Tech Lead Telefe | También Somos Familia Website for Argentinian TV show “Somos Familia”, where
-          users can upload their own pet’s videos to YouTube, discuss in forums and more. Javascript, jQuery, PHP,
-          Codeigniter, YouTube API, Python, MySQL.
-        </p>
-        <p>
-          Fullstack Tech and Project Lead Abeceb | Website Economics consultancy platform with an extensive amount of
-          data series for chart analysis and predictive simulations. Javascript, jQuery, Ruby on Rails, MySQL.
-        </p>
+        <Portfolio />
       </section>
       <section>
         <h2 className="title">Education</h2>
