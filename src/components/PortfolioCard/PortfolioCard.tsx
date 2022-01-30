@@ -7,20 +7,20 @@ interface IPortfolioCard {
   description: string;
   owner: string;
   position: string;
+  image?: string;
   technologies: string[];
 }
 
 const Article = styled.article`
-  max-width: 25%;
   box-shadow: 3px 3px 10px #dedede;
-  flex-grow: 1;
-  min-width: 300px;
 `;
 
 const Image = styled.img`
   background: grey;
   min-height: 200px;
   min-width: 100%;
+  width: 100%;
+  object-fit: cover;
 `;
 
 const Position = styled.h3`
@@ -45,10 +45,10 @@ const Tech = styled.span`
   margin: 0.4em;
 `;
 
-export const PortfolioCard = ({ project, description, owner, position, technologies }: IPortfolioCard) => {
+export const PortfolioCard = ({ project, description, owner, position, technologies, image }: IPortfolioCard) => {
   return (
     <Article>
-      <Image alt={project} />
+      <Image alt={project} src={image || ""} />
       <Box sx={{ p: 2 }}>
         <Position>{position}</Position>
         <Project>{project}</Project>

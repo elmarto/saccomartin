@@ -1,6 +1,15 @@
-import { Box } from "@mui/material";
+// import { Box } from "@mui/material";
 import React from "react";
 import { PortfolioCard } from "../../../../components/PortfolioCard/PortfolioCard";
+import styled from "styled-components";
+
+const Grid = styled.div`
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: dense;
+  /* grid-auto-rows: 22rem; */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+`;
 
 export const Portfolio = () => {
   const cards = [
@@ -19,6 +28,7 @@ export const Portfolio = () => {
       owner: "Avantage",
       project: "Playbook ",
       description: "Let players bet on NFL plays in real time. ",
+      image: "./assets/portfolio/avantage_playbook.png",
       technologies: "Angular 6, Material, Flex Layout, Sass, Java, SmartFox Socket Server".split(", "),
     },
 
@@ -94,10 +104,12 @@ export const Portfolio = () => {
   ];
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", gap: 3 }}>
+    // <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", gap: 3 }}>
+    <Grid>
       {cards.map((card) => (
         <PortfolioCard {...card} key={card.id}></PortfolioCard>
       ))}
-    </Box>
+    </Grid>
+    // </Box>
   );
 };
